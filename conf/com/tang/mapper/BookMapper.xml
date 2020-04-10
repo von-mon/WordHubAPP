@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tang.mapper.BookMapper">
+
+    <!--   List<WordBook> getBook(String id)-->
+    <select id="getBook" resultType="WordBook">
+        select * from book where id = #{id}
+    </select>
+
+<!--    void addBook(WordBook book)-->
+    <insert id="addBook">
+        insert into book values (null,#{id},#{wordName},#{wordMeaning},#{wordPhonetic})
+    </insert>
+
+
+<!--    Integer isBook(String word);-->
+    <select id="isBook" resultType="Integer">
+        select * from book where wordName = #{wordName}
+    </select>
+
+
+<!--    void deleteBook()-->
+    <delete id="deleteBook">
+        delete from book
+    </delete>
+</mapper>
